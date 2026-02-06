@@ -54,6 +54,11 @@ a:visited {
   margin-bottom: 4rem;
 }
 
+.map-instruction {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 10px 0;
+}
 .workouts {
   list-style: none;
   height: 77vh;
