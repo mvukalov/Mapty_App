@@ -33,8 +33,11 @@
   <body>
     <div class="sidebar">
       <img src="logo.png" alt="Logo" class="logo" />
-      <p id="map-instruction" class="map-instruction">
-        Click on the map to log a new workout
+      <p id="map-instruction" class="map-instruction hidden">
+        Click on the map to add your workout location!
+      </p>
+      <p id="location-message" class="map-message hidden">
+        📍 Unable to get your location. Please allow location access.
       </p>
 
       <ul class="workouts">
@@ -59,20 +62,14 @@
           </div>
 
           <div class="form__row">
-            <label class="form__label">Cadence</label>
-            <input
-              class="form__input form__input--cadence"
-              placeholder="step/min"
-            />
-          </div>
-          <div class="form__row form__row--hidden">
             <label class="form__label">Elev Gain</label>
             <input
               class="form__input form__input--elevation"
               placeholder="meters"
             />
           </div>
-          <button class="form__btn">OK</button>
+          <span class="form__error hidden">Error message</span>
+          <button class="form__btn">Add workout</button>
         </form>
 
         <!-- <li class="workout workout--running" data-id="1234567890">

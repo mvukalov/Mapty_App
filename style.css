@@ -26,10 +26,8 @@ body {
   line-height: 1.6;
   height: 100vh;
   overscroll-behavior-y: none;
-
   background-color: #fff;
   padding: 2.5rem;
-
   display: flex;
 }
 
@@ -37,6 +35,10 @@ body {
 a:link,
 a:visited {
   color: var(--color-brand--1);
+}
+
+.hidden {
+  display: none;
 }
 
 /* SIDEBAR */
@@ -55,9 +57,23 @@ a:visited {
 }
 
 .map-instruction {
-  font-size: 0.9rem;
-  color: #666;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--color-light--1);
   margin: 10px 0;
+}
+
+.workout--active {
+  border: 2px solid var(--color-brand--2);
+  background-color: rgba(0, 196, 106, 0.1);
+}
+
+.map-message {
+  font-size: 1.2rem;
+  color: #aaa;
+  text-align: center;
+  margin: 2rem 1rem;
+  line-height: 1.4;
 }
 .workouts {
   list-style: none;
@@ -76,17 +92,16 @@ a:visited {
   padding: 1.5rem 2.25rem;
   margin-bottom: 1.75rem;
   cursor: pointer;
-
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 0.75rem 1.5rem;
 }
-.workout--running {
+/* .workout--running {
   border-left: 5px solid var(--color-brand--2);
 }
 .workout--cycling {
   border-left: 5px solid var(--color-brand--1);
-}
+} */
 
 .workout__title {
   font-size: 1.7rem;
@@ -127,8 +142,7 @@ a:visited {
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem 2.5rem;
 
-  /* Match height and activity boxes */
-  height: 9.25rem;
+  height: auto;
   transition:
     all 0.5s,
     transform 1ms;
@@ -173,26 +187,26 @@ a:visited {
   background-color: #fff;
 }
 
+.form__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .form__btn {
-  display: none;
+  grid-column: 1 / -1;
+  margin-top: 0.5rem;
+  background-color: var(--color-brand--2);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
 }
 
-.copyright {
-  margin-top: auto;
-  font-size: 1.3rem;
-  text-align: center;
-  color: var(--color-light--1);
-}
-
-.twitter-link:link,
-.twitter-link:visited {
-  color: var(--color-light--1);
-  transition: all 0.2s;
-}
-
-.twitter-link:hover,
-.twitter-link:active {
-  color: var(--color-light--2);
+.form__btn:hover {
+  background-color: #00b05c;
 }
 
 /* MAP */
@@ -218,9 +232,82 @@ a:visited {
   background-color: var(--color-dark--1);
 }
 
-.running-popup .leaflet-popup-content-wrapper {
-  border-left: 5px solid var(--color-brand--2);
+.workout__header {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.cycling-popup .leaflet-popup-content-wrapper {
-  border-left: 5px solid var(--color-brand--1);
+
+/* Workout action buttons styles */
+.workout__actions {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.workout__delete,
+.workout__edit {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+}
+
+.form__error {
+  color: #ff6b6b;
+  grid-column: 1 / -1;
+}
+.workout__delete {
+  background-color: #ff6b6b;
+  color: #fff;
+}
+
+.workout__delete:hover {
+  background-color: #ff4c4c;
+  transform: scale(1.05);
+}
+
+.workout__edit {
+  background-color: #ffb545;
+  color: #fff;
+}
+
+.workout__edit:hover {
+  background-color: #ff9c4a;
+  transform: scale(1.05);
+}
+
+.workout--active .workout__delete,
+.workout--active .workout__edit {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.workout__actions {
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.form__input--error {
+  border: 2px solid #ff6b6b;
+}
+
+.workout--active .workout__actions {
+  display: flex;
+}
+/* hover effect */
+.workout:not(.workout--active):hover {
+  background-color: #50555a;
 }
