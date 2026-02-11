@@ -23,6 +23,7 @@ https://mapty-app-mv.netlify.app/
 - JavaScript (ES6+)
 - HTML5
 - CSS3
+- OOP
 - Leaflet.js (map integration)
 - Geolocation API
 - Local Storage
