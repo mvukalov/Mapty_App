@@ -33,3 +33,6 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/mvukalov/Mapty_App.git
+
+📄 License
+This project is intended for educational and portfolio purposes.
