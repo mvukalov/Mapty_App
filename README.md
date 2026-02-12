@@ -87,7 +87,7 @@ Mapty_App/
 
 ## 👤 Author
 
-Martin Vukalovic
+Martin Vukalović
 
 ---
 
